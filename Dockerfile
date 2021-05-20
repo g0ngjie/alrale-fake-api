@@ -1,8 +1,8 @@
 FROM node:10.16.0
 
-ADD . /app/
-
 WORKDIR /app
+
+ADD . /app
 
 EXPOSE 3000
 
