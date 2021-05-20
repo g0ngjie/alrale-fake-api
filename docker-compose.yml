@@ -1,0 +1,11 @@
+version: "3.5"
+services:
+  yanziserver:
+    container_name: fake_api
+    image: fake_api_image
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:3000
