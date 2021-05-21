@@ -10,4 +10,11 @@ router.get("/list", async (ctx, next) => {
   await next();
 });
 
+router.get("/:id", (ctx, next) => {
+  const id = ctx.params.id
+  console.log("[debug]:", id )
+  KLayout.layout(ctx, id);
+  next();
+});
+
 module.exports = router;
