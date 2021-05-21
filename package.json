@@ -1,9 +1,8 @@
 {
-  "name": "alrale-fake-api",
+  "name": "@alrale/fake-api",
   "version": "0.1.0",
   "author": "Gj",
   "description": "模拟测试用接口服务",
-  "private": true,
   "scripts": {
     "start": "node bin/www",
     "dev": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon bin/www",
@@ -22,7 +21,8 @@
     "koa-router": "7.4.0",
     "koa-static": "5.0.0",
     "koa2-cors": "2.0.6",
-    "lodash": "4.17.15"
+    "lodash": "4.17.15",
+    "mockjs": "^1.1.0"
   },
   "devDependencies": {
     "chai": "4.2.0",
