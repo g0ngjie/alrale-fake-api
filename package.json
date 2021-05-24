@@ -9,7 +9,9 @@
     "test": "jest"
   },
   "main": "cli.js",
-  "bin": "cli.js",
+  "bin": {
+    "fake": "cli.js"
+  },
   "keywords": [
     "alrale",
     "cli",
