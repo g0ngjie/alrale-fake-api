@@ -3,6 +3,6 @@
 git pull origin master \
 && npm install \
 && docker-compose down \
-&& docker rmi fake_api_image \
+&& docker rmi alrale/fake-api \
 && docker-compose build \
 && docker-compose up -d
