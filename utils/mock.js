@@ -16,7 +16,7 @@ exports.getUser = function () {
     //属性 paragraph 是一个随机长度的段落
     paragraph: "@cparagraph",
     //属性 image 是一个随机图片 参数分别为size, background, text
-    image: "@image('200x100', '#4A7BF7', 'avatar')",
+    avatar: "@image('200x100', '#4A7BF7', 'avatar')",
     //属性 address 是一个随机地址
     address: "@county(true)",
     //属性 date 是一个yyyy-MM-dd 的随机日期
@@ -75,6 +75,23 @@ exports.getContent = function () {
   return content;
 };
 
+/**获取文章列表 */
+exports.getContentList = function (limit) {
+  const result = mock({
+    // 属性 list 的值是一个数组，其中含有 1 到 3 个元素
+    [`list|${limit || 10}`]: [
+      {
+        id: "@id",
+        title: "@title()",
+        paragraph: "@cparagraph",
+        time: '@time("yyyy-MM-dd HH:mm:ss")',
+        url: "@url",
+      },
+    ],
+  });
+  return result.list;
+};
+
 /**获取一张图片 */
 exports.getImage = function () {
   const image = Random.image();
@@ -84,7 +101,7 @@ exports.getImage = function () {
 /**图片列表 */
 exports.getImageList = function (limit) {
   const images = mock({ [`list|${limit || 10}`]: ["@image"] });
-  return images;
+  return images.list;
 };
 
 /**获取省列表 */
@@ -128,5 +145,3 @@ exports.getAreaListByCode = function (cCode) {
 exports.provinceCityDistrict = function () {
   return ADDR_DICT;
 };
-
-exports.provinceCityDistrict();

@@ -1,26 +1,36 @@
 "use strict";
 
 const Router = require("koa-router");
+const { Random } = require("mockjs");
 const router = new Router();
-const Mock = require("mockjs");
-const { KLayout } = require("../../utils");
+const { KLayout, MockUtil } = require("../../utils");
 
+/**获取一篇文章 */
+router.get("/", (ctx, next) => {
+  KLayout.layout(ctx, MockUtil.getContent());
+  next();
+});
+
+/**获取文章列表 */
 router.get("/list", async (ctx, next) => {
-  await KLayout.layout(ctx, "/get/list");
+  const limit = ctx.query.limit;
+  const list = MockUtil.getContentList(limit);
+  await KLayout.layout(ctx, { list, count: Random.integer(limit, 1000) });
   await next();
 });
 
-router.get("/:id", (ctx, next) => {
-  const id = ctx.params.id;
-  console.log("[debug]:", id);
-  KLayout.layout(ctx, id);
-  next();
+/**获取一张图片 */
+router.get("/image", async (ctx, next) => {
+  await KLayout.layout(ctx, MockUtil.getImage());
+  await next();
 });
 
-router.get("/xlsx", (ctx, next) => {
-  // movie.mp4
-  // ctx.body = excel;
-  next();
+/**图片列表 */
+router.get("/images", async (ctx, next) => {
+  const limit = ctx.query.limit;
+  const list = MockUtil.getImageList(limit);
+  await KLayout.layout(ctx, { list, count: Random.integer(limit, 1000) });
+  await next();
 });
 
 module.exports = router;
