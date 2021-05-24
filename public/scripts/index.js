@@ -1,5 +1,5 @@
 import Routers from "./router.js";
-import { request } from "./utils.js";
+import { request, download, upload } from "./utils.js";
 
 new Vue({
   el: "#app",
@@ -10,11 +10,30 @@ new Vue({
       ajax_content: null,
       // responseTxt
       responseTxt: "",
+      // 文件下载
+      showBtn: false,
+      // 当前选中
+      currentNode: {},
     };
   },
   methods: {
+    // 下载
+    handleDownload(type) {
+      const { path, method } = this.currentNode;
+      console.log("[debug]type:", type);
+      download(path + type, type, method);
+    },
+    // 上传
+    async handleUpload() {
+      const file = document.querySelector("#file").files[0];
+      const { path } = this.currentNode;
+      //获取到选中的文件
+      const result = await upload(file, path);
+      this.responseTxt = result;
+    },
+    // 路由
     handleClickRouter({ url, name: title, method, detail }) {
-      this.genAjaxHtml(url, title, detail);
+      this.genAjaxHtml(url, title, detail, method);
       this.genResponseTxt(url, method);
     },
     // 初始化路由列表
@@ -22,7 +41,22 @@ new Vue({
       this.routers = Routers;
     },
     // 生成ajax示例
-    genAjaxHtml(path, title, detail) {
+    genAjaxHtml(path, title, detail, method = "get") {
+      // 判断是否需要特殊操作
+      const isUpload = path.includes("/upload");
+      const isDownload = path.includes("/download");
+      this.showBtn = isUpload || isDownload;
+      if (this.showBtn) {
+        this.currentNode = {
+          isUpload,
+          isDownload,
+          path,
+          title,
+          detail,
+          method: method.toLowerCase(),
+        };
+        return;
+      }
       const domain = location.origin;
       const value = `
         <em class="title">${title || ""}</em><br/>
@@ -34,6 +68,7 @@ new Vue({
       this.ajax_content = value;
     },
     async genResponseTxt(path, method) {
+      if (this.showBtn) return;
       const result = await request(path, method);
       this.responseTxt = JSON.stringify(result, "", "\t");
     },

@@ -27,7 +27,20 @@
             </section>
         </div>
         <div class="center-container">
-            <p v-html="ajax_content"></p>
+            <div v-if="showBtn" class="btn-container">
+                <span class="title">{{ currentNode.method }}</span>
+                <span class="title">{{ currentNode.title }}</span>
+                <span class="tips">{{ currentNode.detail }}</span>
+                <div class="download-container" v-if="currentNode.isDownload">
+                    <div class="button ripple" @click="handleDownload('xlsx')">xlsx</div>
+                    <div class="button ripple" @click="handleDownload('docx')">docx</div>
+                    <div class="button ripple" @click="handleDownload('txt')">txt</div>
+                    <div class="button ripple" @click="handleDownload('mp4')">mp4</div>
+                    <div class="button ripple" @click="handleDownload('ogg')">ogg</div>
+                </div>
+                <input v-else type="file" name="file" id="file" class="file" @change="handleUpload">
+            </div>
+            <p v-else v-html="ajax_content"></p>
         </div>
         <div class="right-container">
             <code>{{ responseTxt }}</code>

@@ -166,6 +166,42 @@ body {
   color: #72c05d;
 }
 
+.container .center-container .btn-container {
+  padding: 10px 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container .center-container .btn-container .download-container .button {
+  width: 90px;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 10px;
+  -webkit-box-shadow: 0 0 1px #909399;
+          box-shadow: 0 0 1px #909399;
+  background-color: #909399;
+  border: 1px solid #a2a7af;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+
+.container .center-container .btn-container .download-container .button:hover {
+  background-color: #525558;
+}
+
+.container .center-container .btn-container .file {
+  margin-top: 10px;
+}
+
 .container .right-container {
   padding: 20px;
   -webkit-box-flex: 0.98;

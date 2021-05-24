@@ -7,7 +7,6 @@ const path = require("path");
 const fs = require("fs");
 
 function getFileName(type) {
-  console.log("[debug]type:", type);
   const conf = {
     xlsx: "fake-api.xlsx",
     docx: "fake-api.docx",

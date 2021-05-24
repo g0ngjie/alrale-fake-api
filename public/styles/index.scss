@@ -95,6 +95,29 @@ body {
     .mark {
       color: #72c05d;
     }
+    .btn-container {
+      padding: 10px 0;
+      @include set_w_h;
+      .download-container {
+        .button {
+          @include set_w_h(90px, 30px);
+          border-radius: 5px;
+          margin-top: 10px;
+          box-shadow: 0 0 1px #909399;
+          background-color: #909399;
+          border: 1px solid #a2a7af;
+          @include flex_center;
+          color: $FontFFFColor;
+          cursor: pointer;
+          &:hover {
+            background-color: #525558;
+          }
+        }
+      }
+      .file {
+        margin-top: 10px;
+      }
+    }
   }
   .right-container {
     padding: 20px;
