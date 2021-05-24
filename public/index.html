@@ -10,11 +10,32 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="left-container"></div>
-        <div class="center-container"></div>
-        <div class="right-container"></div>
+    <div class="container" id="app">
+        <div class="left-container">
+            <section v-for="(router, index) in routers" :key="index">
+                <!-- router文件 -->
+                <div class="title-container">
+                    <span>{{ router.prefix }}</span>
+                    <span>{{ router.title }}</span>
+                </div>
+                <div class="router-list" v-for="(route, key) in router.routers" :key="key"
+                    @click="handleClickRouter(route)">
+                    <span>{{ route.path }}</span>
+                    <span>{{ route.name }}</span>
+                    <code class="method">{{ route.method }}</code>
+                </div>
+            </section>
+        </div>
+        <div class="center-container">
+            <p v-html="ajax_content"></p>
+        </div>
+        <div class="right-container">
+            <code>{{ responseTxt }}</code>
+        </div>
     </div>
 </body>
+
+<script src="./assets/vue.min.js"></script>
+<script type="module" src="./scripts/index.js"></script>
 
 </html>

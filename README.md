@@ -13,3 +13,9 @@ npm install -g @alrale/fake-api
 ```shell
 docker push alrale/fake-api:tagname
 ```
+
+### 启动
+```shell
+fake start # port: 3000
+fake start -p <port>
+```

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .ripple {
   position: relative;
   overflow: hidden;
@@ -39,22 +40,139 @@ body {
   padding: 0;
   margin: 0;
   background-color: #fff;
+  overflow: hidden;
+}
+
+/*修改滚动条样式*/
+::-webkit-scrollbar {
+  width: 7px;
+  height: 10px;
+  /**/
+}
+
+::-webkit-scrollbar-track {
+  background: #efefef;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #212529;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+::-webkit-scrollbar-corner {
+  background: #179a16;
 }
 
 .container {
+  padding: 10px;
   width: 100%;
   height: 100%;
-  padding: 10px;
-}
-
-.container > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+}
+
+.container > div {
+  border: 1px solid #dcdfe6;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.container > div p {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.container .left-container {
+  width: 350px;
+  height: 95%;
+  overflow-y: scroll;
+}
+
+.container .left-container .title-container {
+  width: 100%;
+  height: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-bottom: 1px solid #bbccdd;
+}
+
+.container .left-container .router-list {
+  cursor: pointer;
+  margin: 1px 0;
+  padding: 5px;
+  font-size: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .left-container .router-list:hover {
+  background-color: #e9ecef;
+}
+
+.container .left-container .router-list .method {
+  color: #28a745;
+  font-weight: bold;
+  padding: 2px 5px;
+  background: #e5e9f0;
+}
+
+.container .center-container {
+  width: 350px;
+  height: 100%;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: #2b3e50;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+.container .center-container .title {
+  font-size: 15px;
+  color: #f56c6c;
+}
+
+.container .center-container .tips {
+  color: #f56c6c;
+  font-size: 15px;
+}
+
+.container .center-container .url {
+  color: #e6db74;
+}
+
+.container .center-container .mark {
+  color: #72c05d;
+}
+
+.container .right-container {
+  padding: 20px;
+  -webkit-box-flex: 0.98;
+      -ms-flex: 0.98;
+          flex: 0.98;
+  margin-left: 10px;
+  background-color: #2b3e50;
+  color: rgba(255, 255, 255, 0.9);
+  overflow-y: scroll;
 }
