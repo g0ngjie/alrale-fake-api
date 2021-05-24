@@ -4,7 +4,7 @@ const Router = require("koa-router");
 const fs = require("fs");
 // const { validateToken } = require("../middlewares/auth");
 const router = new Router();
-router.prefix("/api");
+// router.prefix("/api");
 
 module.exports = (app) => {
   /**路由分发 */
