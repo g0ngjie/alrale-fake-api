@@ -38,7 +38,7 @@ new Vue({
       this.responseTxt = JSON.stringify(result, "", "\t");
     },
   },
-  async created() {
+  created() {
     this.initRouters();
     this.genAjaxHtml("/get");
     this.genResponseTxt("/get");

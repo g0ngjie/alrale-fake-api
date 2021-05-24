@@ -1,7 +1,7 @@
 export default [
   {
     prefix: "GET",
-    title: "模拟GET请求",
+    title: "GET请求",
     routers: [
       {
         path: "/",
@@ -31,7 +31,7 @@ export default [
   },
   {
     prefix: "POST",
-    title: "模拟POST请求",
+    title: "POST请求",
     routers: [
       {
         path: "/",
@@ -50,7 +50,7 @@ export default [
   },
   {
     prefix: "PUT",
-    title: "模拟PUT请求",
+    title: "PUT请求",
     routers: [
       {
         path: "/",
@@ -68,7 +68,7 @@ export default [
   },
   {
     prefix: "DELETE",
-    title: "模拟DELETE请求",
+    title: "DELETE请求",
     routers: [
       {
         path: "/",
