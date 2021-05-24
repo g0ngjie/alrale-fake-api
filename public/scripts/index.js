@@ -20,7 +20,6 @@ new Vue({
     // 下载
     handleDownload(type) {
       const { path, method } = this.currentNode;
-      console.log("[debug]type:", type);
       download(path + type, type, method);
     },
     // 上传
@@ -33,6 +32,7 @@ new Vue({
     },
     // 路由
     handleClickRouter({ url, name: title, method, detail }) {
+      this.responseTxt = "";
       this.genAjaxHtml(url, title, detail, method);
       this.genResponseTxt(url, method);
     },
