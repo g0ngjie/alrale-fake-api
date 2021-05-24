@@ -5,9 +5,7 @@
 const { KError } = require("./../utils");
 
 /**不需要token检测的接口白名单 */
-const whiteLists = [
-  "/api/member/___test",
-];
+const whiteLists = ["/api/member/___test"];
 
 exports.validateToken = async (ctx, next) => {
   const token = ctx.headers["authorization"];

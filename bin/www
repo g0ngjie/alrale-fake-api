@@ -7,14 +7,13 @@
 const app = require("../app");
 const debug = require("debug")("::");
 const http = require("http");
-const env = require("./../config");
-debug.enabled = env.DEBUG;
+debug.enabled = true;
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(env.PORT || "3000");
+const port = normalizePort(process.PORT || "3000");
 // app.set('port', port);
 
 /**

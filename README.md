@@ -1,5 +1,15 @@
-## yanzi_service2
+## alrale/fake-api
 
-###### version: 2.0
+模拟测试用接口服务
 
-[接口文档](./API.md)
+### Npm
+
+```shell
+npm install -g @alrale/fake-api
+```
+
+### Docker commands
+
+```shell
+docker push alrale/fake-api:tagname
+```
