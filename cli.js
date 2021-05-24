@@ -2,13 +2,14 @@
 
 const program = require("commander");
 const PKG = require("./package.json");
-// const open = require("open");
+const open = require("open");
 
 /**mock服务启动 */
 function startFunc(cmd) {
   const { port } = cmd;
   if (port) process.PORT = port;
   require("./bin/www");
+  open(`http://localhost:${port || 3000}`);
 }
 
 /* ========== commander ========== */
