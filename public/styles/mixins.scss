@@ -1,0 +1,103 @@
+// 宽高动态设置
+// 如果只传一个值，那么高=宽
+@mixin set_w_h($width: 100%, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// flex、居中
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// flex、居中、竖向排列
+@mixin flex_center_column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin flex_between_center_column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+// flex、左右居中
+@mixin flex_content_center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex_item_center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex_between_center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex_around_center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin flex_center_end {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@mixin flex_start_end {
+  display: flex;
+  align-items: flex-end;
+}
+
+// position 左右居中
+@mixin position_content_center {
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+@mixin position_item_center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ripple {
+  position: relative;
+  //隐藏溢出的径向渐变背景
+  overflow: hidden;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    //设置径向渐变
+    background-image: radial-gradient(circle, #666 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.5s;
+  }
+  &:active:after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    //设置初始状态
+    transition: 0s;
+  }
+}
