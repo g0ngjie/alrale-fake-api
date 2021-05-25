@@ -1,6 +1,6 @@
 {
   "name": "@alrale/fake-api",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "author": "Gj",
   "description": "模拟测试用接口服务",
   "scripts": {
