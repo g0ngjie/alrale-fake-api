@@ -10,40 +10,47 @@
 </head>
 
 <body>
-    <div class="container" id="app">
-        <div class="left-container">
-            <section v-for="(router, index) in routers" :key="index">
-                <!-- router文件 -->
-                <div class="title-container">
-                    <span>{{ router.prefix }}</span>
-                    <span>{{ router.title }}</span>
-                </div>
-                <div class="router-list" v-for="(route, key) in router.routers" :key="key"
-                    @click="handleClickRouter(route)">
-                    <span>{{ route.path }}</span>
-                    <span>{{ route.title }}</span>
-                    <code class="method">{{ route.method }}</code>
-                </div>
-            </section>
+    <div id="app">
+        <!-- declare -->
+        <div class="declare-container">
+            <span class="title">{{ declare.name }}</span>
+            <span class="version">{{ declare.version }}</span>
         </div>
-        <div class="center-container">
-            <div v-if="showBtn" class="btn-container">
-                <span class="title">{{ currentNode.method }}</span>
-                <span class="title">{{ currentNode.title }}</span>
-                <span class="tips">{{ currentNode.detail }}</span>
-                <div class="download-container" v-if="currentNode.isDownload">
-                    <div class="button ripple" @click="handleDownload('xlsx')">xlsx</div>
-                    <div class="button ripple" @click="handleDownload('docx')">docx</div>
-                    <div class="button ripple" @click="handleDownload('txt')">txt</div>
-                    <div class="button ripple" @click="handleDownload('mp4')">mp4</div>
-                    <div class="button ripple" @click="handleDownload('ogg')">ogg</div>
-                </div>
-                <input v-else type="file" name="file" id="file" class="file" @change="handleUpload">
+        <div class="container">
+            <div class="left-container">
+                <section v-for="(router, index) in routers" :key="index">
+                    <!-- router文件 -->
+                    <div class="title-container">
+                        <span>{{ router.prefix }}</span>
+                        <span>{{ router.title }}</span>
+                    </div>
+                    <div class="router-list" v-for="(route, key) in router.routers" :key="key"
+                        @click="handleClickRouter(route)">
+                        <span>{{ route.path }}</span>
+                        <span>{{ route.title }}</span>
+                        <code class="method">{{ route.method }}</code>
+                    </div>
+                </section>
             </div>
-            <p v-else v-html="ajax_content"></p>
-        </div>
-        <div class="right-container">
-            <code>{{ responseTxt }}</code>
+            <div class="center-container">
+                <div v-if="showBtn" class="btn-container">
+                    <span class="title">{{ currentNode.method }}</span>
+                    <span class="title">{{ currentNode.title }}</span>
+                    <span class="tips">{{ currentNode.detail }}</span>
+                    <div class="download-container" v-if="currentNode.isDownload">
+                        <div class="button ripple" @click="handleDownload('xlsx')">xlsx</div>
+                        <div class="button ripple" @click="handleDownload('docx')">docx</div>
+                        <div class="button ripple" @click="handleDownload('txt')">txt</div>
+                        <div class="button ripple" @click="handleDownload('mp4')">mp4</div>
+                        <div class="button ripple" @click="handleDownload('ogg')">ogg</div>
+                    </div>
+                    <input v-else type="file" name="file" id="file" class="file" @change="handleUpload">
+                </div>
+                <p v-else v-html="ajax_content"></p>
+            </div>
+            <div class="right-container">
+                <code>{{ responseTxt }}</code>
+            </div>
         </div>
     </div>
 </body>

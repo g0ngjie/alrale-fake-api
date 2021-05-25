@@ -14,6 +14,8 @@ new Vue({
       showBtn: false,
       // 当前选中
       currentNode: {},
+      // 声明
+      declare: {},
     };
   },
   methods: {
@@ -75,10 +77,15 @@ new Vue({
       const result = await request(path, method);
       this.responseTxt = JSON.stringify(result, "", "\t");
     },
+    async initDeclare() {
+      const { errorCode, data } = await request("/version");
+      if (errorCode === 100) this.declare = data;
+    },
   },
   created() {
     this.initRouters();
     this.genAjaxHtml("/get");
     this.genResponseTxt("/get");
+    this.initDeclare();
   },
 });
