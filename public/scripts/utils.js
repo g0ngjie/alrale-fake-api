@@ -1,14 +1,20 @@
+export function getBaseUrl(path) {
+  const domain = ["localhost", "127.0.0.1"].includes(location.hostname)
+    ? "http://api.g0ngjie.com"
+    : "/";
+  const url = domain + path;
+  return url;
+}
 // 接口请求工具
 export async function request(path, method = "get") {
-  // const url = "http://localhost:3000";
-  // path = url + path;
-  const res = await fetch(path, { method });
+  const url = getBaseUrl(path);
+  const res = await fetch(url, { method });
   const result = await res.json();
   return result;
 }
 
 export function download(url, type, method = "get") {
-  // url = "http://localhost:3000" + url;
+  url = getBaseUrl(url);
 
   const xhh = new XMLHttpRequest();
   xhh.open(method, url);
@@ -33,8 +39,8 @@ export function download(url, type, method = "get") {
 }
 
 export function upload(file, url) {
+  url = getBaseUrl(url);
   return new Promise((resolve) => {
-    // url = "http://localhost:3000" + url;
     //创建formdata对象
     const formdata = new FormData();
     formdata.append("file", file);

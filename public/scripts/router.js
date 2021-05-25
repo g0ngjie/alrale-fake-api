@@ -5,27 +5,29 @@ export default [
     routers: [
       {
         path: "/",
-        name: "获取一篇文章",
+        title: "获取一篇文章",
         method: "GET",
         url: "/get",
       },
       {
         path: "/list",
-        name: "获取文章列表",
+        title: "获取文章列表",
         method: "GET",
         url: "/get/list",
+        params: { limit: 5 },
       },
       {
         path: "/image",
-        name: "获取一张图片",
+        title: "获取一张图片",
         method: "GET",
         url: "/get/image",
       },
       {
         path: "/images",
-        name: "图片列表",
+        title: "图片列表",
         method: "GET",
         url: "/get/images",
+        body: { limit: 5 },
       },
     ],
   },
@@ -35,16 +37,17 @@ export default [
     routers: [
       {
         path: "/",
-        name: "获取一篇文章",
+        title: "获取一篇文章",
         method: "POST",
         url: "/post",
       },
       {
         path: "/list",
-        name: "获取文章列表",
+        title: "获取文章列表",
         method: "POST",
         url: "/post/list",
         detail: "limit分页参数",
+        data: { limit: 5 },
       },
     ],
   },
@@ -54,13 +57,13 @@ export default [
     routers: [
       {
         path: "/",
-        name: "",
+        title: "",
         method: "PUT",
         url: "/put",
       },
       {
         path: "/:id",
-        name: "",
+        title: "",
         method: "PUT",
         url: "/put/id_" + Date.now(),
       },
@@ -72,13 +75,13 @@ export default [
     routers: [
       {
         path: "/",
-        name: "",
+        title: "",
         method: "DELETE",
         url: "/delete",
       },
       {
         path: "/:id",
-        name: "",
+        title: "",
         method: "DELETE",
         url: "/delete/id_" + Date.now(),
       },
@@ -90,25 +93,25 @@ export default [
     routers: [
       {
         path: "/getProvinces",
-        name: "获取省列表",
+        title: "获取省列表",
         method: "GET",
         url: "/address/getProvinces",
       },
       {
         path: "/getCityListByCode",
-        name: "根据省 获取市",
+        title: "根据省 获取市",
         method: "GET",
         url: "/address/getCityListByCode?code=110000",
       },
       {
         path: "/getAreaListByCode",
-        name: "根据市获取区",
+        title: "根据市获取区",
         method: "GET",
         url: "/address/getAreaListByCode?code=110100",
       },
       {
         path: "/tree",
-        name: "树",
+        title: "树",
         method: "GET",
         url: "/address/tree",
       },
@@ -120,13 +123,13 @@ export default [
     routers: [
       {
         path: "/info",
-        name: "用户详情",
+        title: "用户详情",
         method: "GET",
         url: "/user/info",
       },
       {
         path: "/page",
-        name: "用户列表分页",
+        title: "用户列表分页",
         method: "POST",
         url: "/user/page",
         detail: "limit分页参数",
@@ -139,21 +142,21 @@ export default [
     routers: [
       {
         path: "/upload",
-        name: "文件上传",
+        title: "文件上传",
         method: "POST",
         url: "/file/upload",
         detail: "上传key为 file=",
       },
       {
         path: "/download/:type",
-        name: "文件blob流下载",
+        title: "文件blob流下载",
         method: "GET",
         url: "/file/download/",
         detail: "type=xlsx|docx|txt|ogg|mp4",
       },
       {
         path: "/download/:type",
-        name: "文件blob流下载",
+        title: "文件blob流下载",
         method: "POST",
         url: "/file/download/",
         detail: "type=xlsx|docx|txt|ogg|mp4",

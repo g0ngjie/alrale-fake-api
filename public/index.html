@@ -21,7 +21,7 @@
                 <div class="router-list" v-for="(route, key) in router.routers" :key="key"
                     @click="handleClickRouter(route)">
                     <span>{{ route.path }}</span>
-                    <span>{{ route.name }}</span>
+                    <span>{{ route.title }}</span>
                     <code class="method">{{ route.method }}</code>
                 </div>
             </section>

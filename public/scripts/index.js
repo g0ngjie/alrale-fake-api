@@ -1,5 +1,5 @@
 import Routers from "./router.js";
-import { request, download, upload } from "./utils.js";
+import { request, download, upload, getBaseUrl } from "./utils.js";
 
 new Vue({
   el: "#app",
@@ -57,14 +57,17 @@ new Vue({
         };
         return;
       }
-      const domain = location.origin;
-      const value = `
+      const _url = getBaseUrl(path);
+      let value = `
         <em class="title">${title || ""}</em><br/>
         <em class="tips">${detail || ""}</em><br/><br/>
-        fetch(<span class="url">"${domain + path}"</span>)
+        fetch(<span class="url">"${_url}"</span>)
         <br/>&nbsp;&nbsp;.then(<span class="mark">response</span> => response.json())
-        <br/>&nbsp;&nbsp;.then(<span class="mark">json</span> => console.log(json))
+        <br/>&nbsp;&nbsp;.then(<span class="mark">json</span> => console.log(json))>
+        <br/><br/>
       `;
+      if (method.toLowerCase() === "get")
+        value += `<a href="${_url}" target="_blank">Try</a>`;
       this.ajax_content = value;
     },
     async genResponseTxt(path, method) {

@@ -74,7 +74,14 @@ router.post("/download/:type", async (ctx, next) => {
     next();
     return;
   }
-  const filePath = path.join(__dirname, "..", "..", "public", fileName);
+  const filePath = path.join(
+    __dirname,
+    "..",
+    "..",
+    "public",
+    "assets",
+    fileName
+  );
   let file = fs.createReadStream(filePath);
   try {
     await new Promise((resolve, reject) => {
