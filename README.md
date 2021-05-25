@@ -2,9 +2,9 @@
 
 模拟测试用接口服务
 
-<!-- <image src="public/assets/template.png" /> -->
+<image src="https://github.com/g0ngjie/alrale-fake-api/blob/master/public/assets/template.png?raw=true" width="99%" />
 
-![template](https://github.com/g0ngjie/alrale-fake-api/blob/master/public/assets/template.png?raw=true)
+<!-- ![template](https://github.com/g0ngjie/alrale-fake-api/blob/master/public/assets/template.png?raw=true) -->
 
 ### 为什么我们需要假 API？
 
