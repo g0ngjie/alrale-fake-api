@@ -1,7 +1,7 @@
 export function getBaseUrl(path) {
   const domain = ["localhost", "127.0.0.1"].includes(location.hostname)
     ? "http://api.g0ngjie.com"
-    : "/";
+    : "";
   const url = domain + path;
   return url;
 }
