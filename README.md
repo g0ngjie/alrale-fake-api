@@ -2,7 +2,9 @@
 
 模拟测试用接口服务
 
-<image src="public/assets/template.png" />
+<!-- <image src="public/assets/template.png" /> -->
+
+![template](public/assets/template.png)
 
 ### 为什么我们需要假 API？
 
@@ -10,7 +12,7 @@
 
 ### 使用方式
 
-目前以提供通过`npm`全局安装、`docker`部署、以及<a href="http://api.g0ngjie.com">在线</a>使用
+目前以提供通过`npm`全局安装、`docker`部署、以及<a href="http://api.g0ngjie.com" target="_blank">在线</a>使用
 
 ### Npm
 
