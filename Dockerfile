@@ -7,7 +7,7 @@ WORKDIR /app
 
 ADD . /app
 
-RUN npm install --production
+RUN npm install --production --registry=https://registry.npm.taobao.org
 
 EXPOSE 3000
 
