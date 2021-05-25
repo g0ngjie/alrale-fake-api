@@ -4,7 +4,7 @@
 
 <!-- <image src="public/assets/template.png" /> -->
 
-![template](public/assets/template.png)
+![template](https://github.com/g0ngjie/alrale-fake-api/blob/master/public/assets/template.png?raw=true)
 
 ### 为什么我们需要假 API？
 
