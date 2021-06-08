@@ -31,5 +31,5 @@ fake start -p <port>
 ### Docker
 
 ```shell
-docker push alrale/fake-api:latest
+docker pull alrale/fake-api:latest
 ```
