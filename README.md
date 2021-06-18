@@ -12,7 +12,7 @@
 
 ### 使用方式
 
-目前以提供通过`npm`全局安装、`docker`部署、以及<a href="http://api.g0ngjie.com" target="_blank">在线</a>使用
+目前以提供通过`npm`全局安装、`docker`部署、以及<a href="http://api.alrale.cn" target="_blank">在线</a>使用
 
 ### Npm
 
