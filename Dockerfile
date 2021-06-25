@@ -1,7 +1,9 @@
-FROM alpine:latest
+# FROM alpine:latest
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
-RUN apk add --no-cache --update nodejs nodejs-npm
+# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+# RUN apk add --no-cache --update nodejs nodejs-npm
+
+FROM node:alpine
 
 WORKDIR /app
 
