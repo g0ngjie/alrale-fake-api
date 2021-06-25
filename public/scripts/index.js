@@ -33,7 +33,11 @@ new Vue({
       this.responseTxt = result;
     },
     // 路由
-    handleClickRouter({ url, name: title, method, detail }) {
+    handleClickRouter({ url, name: title, method, detail, isStatic }) {
+      if (isStatic) {
+        window.open(url);
+        return;
+      }
       this.responseTxt = "";
       this.genAjaxHtml(url, title, detail, method);
       this.genResponseTxt(url, method);
@@ -81,11 +85,29 @@ new Vue({
       const { errorCode, data } = await request("/version");
       if (errorCode === 100) this.declare = data;
     },
+    // 获取静态资源列表
+    async staticResource() {
+      const { errorCode, data = [] } = await request("/file/assets");
+      if (errorCode === 100) {
+        this.routers.push({
+          prefix: "STATIC",
+          title: "静态资源",
+          routers: data.map((name) => {
+            return {
+              isStatic: true,
+              path: name,
+              url: `/assets/${name}`,
+            };
+          }),
+        });
+      }
+    },
   },
   created() {
     this.initRouters();
     this.genAjaxHtml("/get");
     this.genResponseTxt("/get");
     this.initDeclare();
+    this.staticResource();
   },
 });

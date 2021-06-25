@@ -102,4 +102,12 @@ router.post("/download/:type", async (ctx, next) => {
   }
 });
 
+// 获取文件资源列表
+router.get("/assets", (ctx, next) => {
+  const filePath = path.join(__dirname, "..", "..", "public", "assets");
+  const files = fs.readdirSync(filePath);
+  KLayout.layout(ctx, files);
+  next();
+});
+
 module.exports = router;
