@@ -1,6 +1,5 @@
 import Routers from "./router.js";
 import { request, download, upload, getBaseUrl } from "./utils.js";
-import { mount, handleClick } from "./index.esm.min.js";
 
 new Vue({
   el: "#app",
@@ -23,13 +22,13 @@ new Vue({
     // 下载
     handleDownload(type) {
       const { path, method } = this.currentNode;
-      handleClick({ event: '下载', type })
+      logger.handleClick({ event: '下载', type })
       download(path + type, type, method);
     },
     // 上传
     async handleUpload() {
       const file = document.querySelector("#file").files[0];
-      handleClick({ event: '上传', fileName: file.name })
+      logger.handleClick({ event: '上传', fileName: file.name })
       const { path } = this.currentNode;
       //获取到选中的文件
       const result = await upload(file, path);
@@ -41,7 +40,7 @@ new Vue({
         window.open(url);
         return;
       }
-      handleClick({ event: '路由', title })
+      logger.handleClick({ event: '路由', title })
       this.responseTxt = "";
       this.genAjaxHtml(url, title, detail, method);
       this.genResponseTxt(url, method);
@@ -113,9 +112,9 @@ new Vue({
     this.genResponseTxt("/get");
     this.initDeclare();
     this.staticResource();
-    mount({
+    logger.mount({
       traceId: 'fake-api',
-      serverURL: 'http://logger.alrale.cn',
+      serverURL: 'https://logger.alrale.cn',
       mapURI: "http://api.map.baidu.com/location/ip?ak=RD3fQS8GA1UeR4Ig10ejdEkTg1OfwuV3",
       encryptionFunc: 'useDefault'
     });
